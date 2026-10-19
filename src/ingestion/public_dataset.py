@@ -47,6 +47,8 @@ def load_public_dataset() -> pd.DataFrame:
     df = df.dropna(subset=["date", "amount"])
     df["description"] = df["description"].astype(str).str.strip()
     df = df[df["description"] != ""]
+        # Drop one-off huge purchases (the dataset's "Car" rows reach six figures)
+    df = df[df["amount"].abs() <= 20_000]   
     return df[["user_id", "date", "description", "amount", "category"]]
 
 
