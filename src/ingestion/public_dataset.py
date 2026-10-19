@@ -43,6 +43,10 @@ def load_public_dataset() -> pd.DataFrame:
     # Expenses are negative in our schema
     df["amount"] = -df["Total Spent"].abs()
     df["category"] = df["raw_category"].map(CATEGORY_MAP).fillna("Other")
+        # Item-level fixes where their category scheme differs from ours
+    item = df["description"].astype(str).str.strip()
+    df.loc[item == "Taxi/Uber", "category"] = "Transport"
+    df.loc[item == "Rent", "category"] = "Rent"
 
     df = df.dropna(subset=["date", "amount"])
     df["description"] = df["description"].astype(str).str.strip()
