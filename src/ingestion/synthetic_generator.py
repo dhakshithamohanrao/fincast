@@ -46,7 +46,7 @@ ARCHETYPES = {
     },
     "student": {
         "income_type": "salary",
-        "salary": (700, 1200),
+        "salary": (900, 1400),
         "rent": (300, 550),
         "utilities": (30, 70),
         "groceries_weekly": (30, 55),
@@ -248,6 +248,22 @@ def shocks(p, month, rng, infl=1.0):
         rows.append(_row(_day(month, int(rng.integers(1, 29))), "Elektro Markt Ersatzgeraet", -amount, "Shopping"))
     return rows
 
+LEISURE_PLACES = [
+    "Kino CineStar", "Eventim Tickets", "Bowling Center", "Museum Eintritt", "Steam Games",
+]
+
+
+def leisure(p, month, rng, infl=1.0):
+    """Small steady leisure spending every month (cinema, events, hobbies)."""
+    rows = []
+    n = int(rng.integers(1, 4))
+    budget = _income_base(p) * float(rng.uniform(0.02, 0.05))
+    for _ in range(n):
+        amount = budget / n * float(rng.uniform(0.6, 1.4)) * infl
+        rows.append(
+            _row(_day(month, int(rng.integers(1, 29))), _pick(LEISURE_PLACES, rng), -amount, "Leisure")
+        )
+    return rows
 
 # ---------------------------------------------------------------------------
 # Part 3: whole users, the full dataset, and writing the CSV.
@@ -262,9 +278,10 @@ ARCHETYPE_WEIGHTS = {
     "freelancer": 0.20,
     "student": 0.15,
 }
+
 MONTH_FUNCTIONS = [
     salary, rent, utilities, subscriptions, groceries,
-    dining, transport, shopping, seasonal, shocks,
+    dining, transport, shopping, seasonal, leisure, shocks,
 ]
 
 
