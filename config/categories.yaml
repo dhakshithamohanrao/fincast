@@ -1,0 +1,74 @@
+# Keywords are matched against the lower-cased transaction description.
+# Order matters: the first category whose keyword matches wins.
+Income:
+  - gehalt
+  - weihnachtsgeld
+  - zahlung kunde
+  - salary
+  - rechnung
+Rent:
+  - miete
+  - hausverwaltung
+  - rent
+Utilities:
+  - stadtwerke
+  - strom
+  - water bill
+  - gas bill
+  - electricity
+Subscriptions:
+  - netflix
+  - spotify
+  - fitx
+  - vodafone
+  - amazon prime
+  - disney
+  - streaming
+  - magazine
+Groceries:
+  - rewe
+  - lidl
+  - aldi
+  - edeka
+  - milk
+  - bread
+  - vegetables
+Dining:
+  - restaurant
+  - lieferando
+  - cafe
+  - burger
+  - baeckerei
+  - coffee
+  - fast food
+Transport:
+  - deutsche bahn
+  - shell
+  - uber
+  - bvg
+  - tankstelle
+  - kfz
+  - public transit
+  - taxi
+Shopping:
+  - amazon marketplace
+  - zalando
+  - dm drogeriemarkt
+  - mediamarkt
+  - elektro markt
+  - weihnachtsgeschenke
+Leisure:
+  - kino
+  - eventim
+  - bowling
+  - museum
+  - steam
+  - booking.com
+Health:
+  - zahnarzt
+  - apotheke
+  - doctor
+  - dentist
+  - yoga
+Other:
+  - versicherung
