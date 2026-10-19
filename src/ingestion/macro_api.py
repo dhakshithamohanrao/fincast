@@ -7,6 +7,7 @@ import io
 
 import pandas as pd
 import requests
+import holidays
 
 from src.utils.helpers import get_project_root, load_config
 
@@ -49,8 +50,8 @@ def load_macro(force_refresh: bool = False) -> pd.DataFrame:
         if cache.exists() and not force_refresh:
             return pd.read_csv(cache, parse_dates=["month"])
         macro = pd.concat([_fetch_hicp(), _fetch_ecb_rate()], axis=1).sort_index()
-        macro[["hicp_yoy", "ecb_rate"]] = macro[["hicp_yoy", "ecb_rate"]].ffill()
-        macro = macro.dropna().reset_index()
+        macro["ecb_rate"] = macro["ecb_rate"].ffill()  # rate only changes on decision dates
+        macro = macro.dropna(subset=["hicp_yoy", "ecb_rate"]).reset_index()  # no invented inflation
         macro.to_csv(cache, index=False)
         return macro
     except Exception as e:
@@ -68,3 +69,19 @@ if __name__ == "__main__":
     print(len(m), "months")
     print(m["month"].min().date(), "to", m["month"].max().date())
     print(m.tail())
+
+def holiday_table(start_year: int, end_year: int, country: str = "DE",
+                  subdiv: str | None = None) -> pd.DataFrame:
+    """One row per month with the number of public holidays and days in the month.
+
+    Columns: month (first day of month), n_holidays, days_in_month.
+    Example: holiday_table(2022, 2026, "DE", "BE") for Berlin.
+    """
+    hol = holidays.country_holidays(
+        country, subdiv=subdiv, years=range(start_year, end_year + 1)
+    )
+    months = pd.date_range(f"{start_year}-01-01", f"{end_year}-12-01", freq="MS")
+    counts = pd.Series(1, index=pd.to_datetime(list(hol.keys()))).resample("MS").sum()
+    out = counts.reindex(months, fill_value=0).rename_axis("month").reset_index(name="n_holidays")
+    out["days_in_month"] = out["month"].dt.days_in_month
+    return out
