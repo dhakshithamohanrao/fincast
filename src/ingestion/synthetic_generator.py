@@ -318,3 +318,4 @@ def write_synthetic_csv(df=None):
 
 if __name__ == "__main__":
     print(f"Wrote {write_synthetic_csv()}")
+
