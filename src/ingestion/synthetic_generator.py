@@ -247,3 +247,74 @@ def shocks(p, month, rng, infl=1.0):
         amount = float(rng.uniform(200, 700)) * infl
         rows.append(_row(_day(month, int(rng.integers(1, 29))), "Elektro Markt Ersatzgeraet", -amount, "Shopping"))
     return rows
+
+
+# ---------------------------------------------------------------------------
+# Part 3: whole users, the full dataset, and writing the CSV.
+# ---------------------------------------------------------------------------
+from src.utils.helpers import get_project_root, load_config
+
+END_MONTH = "2026-09-01"  # last month of the dataset (fixed, so results are reproducible)
+ANNUAL_INFLATION = 0.03
+ARCHETYPE_WEIGHTS = {
+    "salaried_single": 0.40,
+    "salaried_family": 0.25,
+    "freelancer": 0.20,
+    "student": 0.15,
+}
+MONTH_FUNCTIONS = [
+    salary, rent, utilities, subscriptions, groceries,
+    dining, transport, shopping, seasonal, shocks,
+]
+
+
+def generate_user(archetype, months=36, seed=0, user_id="u001", end_month=END_MONTH):
+    """All transactions of one fake user. Columns: user_id, date, description,
+    amount, category (the true label), archetype."""
+    rng = np.random.default_rng(seed)
+    params = draw_user_params(archetype, rng)
+    month_starts = pd.date_range(end=pd.Timestamp(end_month), periods=months, freq="MS")
+
+    rows = []
+    for i, month in enumerate(month_starts):
+        infl = (1 + ANNUAL_INFLATION) ** (i / 12)
+        for build in MONTH_FUNCTIONS:
+            rows.extend(build(params, month, rng, infl))
+
+    df = pd.DataFrame(rows)
+    df.insert(0, "user_id", user_id)
+    df["archetype"] = archetype
+    return df.sort_values("date", kind="stable").reset_index(drop=True)
+
+
+def generate_all(n_users=None, months=None, seed=None):
+    """The full synthetic dataset. Defaults come from config.yaml."""
+    config = load_config()
+    n_users = n_users or config["synthetic"]["n_users"]
+    months = months or config["synthetic"]["months"]
+    seed = config["seed"] if seed is None else seed
+
+    rng = np.random.default_rng(seed)
+    names = list(ARCHETYPE_WEIGHTS)
+    probabilities = list(ARCHETYPE_WEIGHTS.values())
+
+    frames = []
+    for i in range(n_users):
+        archetype = str(rng.choice(names, p=probabilities))
+        user_seed = int(rng.integers(0, 2**31 - 1))
+        frames.append(generate_user(archetype, months, user_seed, f"u{i + 1:03d}"))
+    return pd.concat(frames, ignore_index=True)
+
+
+def write_synthetic_csv(df=None):
+    """Save the dataset to data/raw/synthetic_transactions.csv and return the path."""
+    if df is None:
+        df = generate_all()
+    path = get_project_root() / load_config()["paths"]["raw"] / "synthetic_transactions.csv"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(path, index=False)
+    return path
+
+
+if __name__ == "__main__":
+    print(f"Wrote {write_synthetic_csv()}")
