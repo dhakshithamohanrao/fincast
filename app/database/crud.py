@@ -101,3 +101,22 @@ def get_transactions(
     df = pd.DataFrame([tuple(r) for r in rows], columns=TRANSACTION_COLUMNS)
     df["date"] = pd.to_datetime(df["date"])
     return df
+
+def save_corrections(user_id: int, corrections: pd.DataFrame) -> int:
+    """Store (description, category) pairs the user fixed, for retraining later.
+    Returns how many were saved."""
+    if corrections is None or corrections.empty:
+        return 0
+    rows = [(user_id, d, c) for d, c in zip(corrections["description"], corrections["category"])]
+    conn = get_connection()
+    try:
+        with conn:
+            conn.executemany(
+                "INSERT INTO category_corrections (user_id, description, category) "
+                "VALUES (?, ?, ?) "
+                "ON CONFLICT(user_id, description) DO UPDATE SET category = excluded.category",
+                rows,
+            )
+    finally:
+        conn.close()
+    return len(rows)

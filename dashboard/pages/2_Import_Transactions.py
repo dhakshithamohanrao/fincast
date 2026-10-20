@@ -10,7 +10,7 @@ import pandas as pd
 import streamlit as st
 
 from app.auth.session import require_login
-from app.database.crud import add_transactions
+from app.database.crud import add_transactions, save_corrections
 from src.ingestion.bank_csv_parser import (
     STANDARD_COLUMNS,
     BankCSVError,
@@ -18,9 +18,9 @@ from src.ingestion.bank_csv_parser import (
     parse_bank_csv,
     read_raw_csv,
 )
+from src.preprocessing.categorizer import categorize
 from src.preprocessing.cleaning import clean_transactions
 
-# Temporary list; it moves to config/categories.yaml in Phase 5
 CATEGORIES = [
     "Groceries", "Rent", "Utilities", "Transport", "Dining", "Leisure",
     "Health", "Shopping", "Subscriptions", "Savings", "Income", "Other",
@@ -33,10 +33,16 @@ user_id = require_login()
 st.title("Import transactions")
 
 
+@st.cache_data(show_spinner="Categorising transactions...")
+def categorize_cached(df: pd.DataFrame) -> pd.DataFrame:
+    """Cached so the model is not reloaded every time the page reruns."""
+    return categorize(df)
+
+
 def render_upload() -> None:
     st.write(
         "Upload a CSV export from your bank. FinCast detects the columns, cleans the "
-        "data and skips transactions you have already imported."
+        "data, assigns categories and skips transactions you have already imported."
     )
     uploaded = st.file_uploader("Bank CSV file", type=["csv", "txt"])
     if uploaded is None:
@@ -69,7 +75,7 @@ def render_upload() -> None:
 
     expenses_positive = st.checkbox("My file shows expenses as positive numbers")
 
-    # Step 2: parse, clean and preview
+    # Step 2: parse, clean, categorise and preview
     try:
         parsed = parse_bank_csv(uploaded, column_map)
         cleaned = clean_transactions(parsed, expenses_positive=expenses_positive)
@@ -81,7 +87,11 @@ def render_upload() -> None:
         st.warning("No valid transactions were found in this file.")
         return
 
-    st.subheader("2. Preview")
+    categorized = categorize_cached(cleaned)
+    # Money coming in is always income
+    categorized.loc[categorized["amount"] > 0, "category"] = "Income"
+
+    st.subheader("2. Preview and fix categories")
     income = cleaned.loc[cleaned["amount"] > 0, "amount"].sum()
     expenses = -cleaned.loc[cleaned["amount"] < 0, "amount"].sum()
 
@@ -94,14 +104,31 @@ def render_upload() -> None:
         f"{cleaned['date'].min():%d.%m.%Y} - {cleaned['date'].max():%d.%m.%Y}",
     )
 
-    st.dataframe(cleaned.head(20), use_container_width=True, hide_index=True)
-    if len(cleaned) > 20:
-        st.caption(f"Showing the first 20 of {len(cleaned)} rows.")
+    st.caption("Wrong category? Click a cell in the Category column and pick the right one.")
+    edited = st.data_editor(
+        categorized,
+        column_config={
+            "category": st.column_config.SelectboxColumn(
+                "Category", options=CATEGORIES, required=True
+            ),
+            "category_source": st.column_config.TextColumn("Assigned by"),
+        },
+        disabled=["date", "description", "amount", "category_source"],
+        hide_index=True,
+        use_container_width=True,
+        key="import_editor",
+    )
+
+    changed = edited.loc[edited["category"] != categorized["category"]]
+    if len(changed):
+        st.info(f"You changed {len(changed)} categories. They are saved when you confirm.")
 
     # Step 3: save
     st.subheader("3. Save")
     if st.button("Confirm and save", type="primary"):
-        added, skipped = add_transactions(user_id, cleaned, source="upload")
+        to_save = edited.drop(columns=["category_source"])
+        added, skipped = add_transactions(user_id, to_save, source="upload")
+        fixed = save_corrections(user_id, changed[["description", "category"]])
         if added:
             st.success(
                 f"Saved {added} new transactions. "
@@ -109,6 +136,8 @@ def render_upload() -> None:
             )
         else:
             st.info(f"Nothing new to save: all {skipped} transactions were already imported.")
+        if fixed:
+            st.caption(f"{fixed} category corrections stored for future retraining.")
 
 
 def render_manual() -> None:
