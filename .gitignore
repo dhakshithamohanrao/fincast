@@ -8,4 +8,5 @@ mlflow.db
 data/raw/
 data/interim/
 *.db
-.ipynb_checkpoints/data/processed/
+.ipynb_checkpoints/
+data/processed/
