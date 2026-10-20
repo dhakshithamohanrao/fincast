@@ -8,10 +8,12 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, f1_score
-from sklearn.model_selection import KFold, cross_val_predict
+from sklearn.model_selection import GroupKFold, cross_val_predict
 from sklearn.pipeline import make_pipeline
 
 from src.utils.helpers import get_project_root, load_config
+
+MAX_ROWS = 60_000  # keeps training to about a minute; set to None to use every row
 
 
 def clean_text(s: pd.Series) -> pd.Series:
@@ -24,11 +26,12 @@ def clean_text(s: pd.Series) -> pd.Series:
 def load_training_data() -> pd.DataFrame:
     root = get_project_root()
     raw = root / load_config()["paths"]["raw"]
-    frames = [pd.read_csv(raw / n, usecols=["description", "category"])
-              for n in ["synthetic_transactions.csv", "public_transactions.csv"]]
-    df = pd.concat(frames, ignore_index=True)
+    syn = pd.read_csv(raw / "synthetic_transactions.csv", usecols=["user_id", "description", "category"])
+    pub = pd.read_csv(raw / "public_transactions.csv", usecols=["user_id", "description", "category"])
+    pub["user_id"] = "pub_" + pub["user_id"].astype(str)
+    df = pd.concat([syn, pub], ignore_index=True)
     df["text"] = clean_text(df["description"])
-    return df[["text", "category"]].drop_duplicates().reset_index(drop=True)
+    return df[["user_id", "text", "category"]]
 
 
 def make_model(seed: int):
@@ -41,25 +44,34 @@ def make_model(seed: int):
 def main() -> None:
     seed = load_config()["seed"]
     data = load_training_data()
-    print(f"{len(data)} unique descriptions, {data['category'].nunique()} categories")
+    if MAX_ROWS and len(data) > MAX_ROWS:
+        data = data.sample(MAX_ROWS, random_state=seed).reset_index(drop=True)
+    print(f"{len(data):,} rows, {data['user_id'].nunique()} users, "
+          f"{data['text'].nunique()} unique descriptions")
 
-    # Every description appears once, so each fold tests on descriptions it never saw
-    cv = KFold(n_splits=5, shuffle=True, random_state=seed)
-    pred = cross_val_predict(make_model(seed), data["text"], data["category"], cv=cv)
+    # Split by user: test users never appear in training, but shared merchants do
+    cv = GroupKFold(n_splits=5)
+    pred = cross_val_predict(make_model(seed), data["text"], data["category"],
+                             cv=cv, groups=data["user_id"], n_jobs=-1)
     acc = accuracy_score(data["category"], pred)
     macro_f1 = f1_score(data["category"], pred, average="macro")
-    print(f"Cross-validated accuracy on unseen descriptions: {acc:.1%}  (macro F1 {macro_f1:.2f})")
+    print(f"Cross-validated accuracy on unseen users: {acc:.1%}  (macro F1 {macro_f1:.2f})")
 
     wrong = data[pred != data["category"]].assign(predicted=pred[pred != data["category"]])
-    print("\nMisclassified:")
-    print(wrong.to_string(index=False) if len(wrong) else "none")
+    print("\nMost common mistakes:")
+    if len(wrong):
+        print(wrong.groupby(["text", "category", "predicted"]).size()
+              .sort_values(ascending=False).head(15).to_string())
+    else:
+        print("none")
 
     report = classification_report(data["category"], pred, output_dict=True, zero_division=0)
 
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("categorizer")
-    with mlflow.start_run(run_name="tfidf_char_logreg"):
-        mlflow.log_params({"ngram_range": "2-5", "C": 10, "n_descriptions": len(data), "cv_folds": 5})
+    with mlflow.start_run(run_name="tfidf_char_logreg_user_split"):
+        mlflow.log_params({"ngram_range": "2-5", "C": 10, "n_rows": len(data),
+                           "cv_folds": 5, "split": "GroupKFold by user"})
         mlflow.log_metrics({"accuracy": acc, "macro_f1": macro_f1})
         for label, scores in report.items():
             if label in data["category"].unique():
