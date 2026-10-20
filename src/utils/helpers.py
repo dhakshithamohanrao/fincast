@@ -32,3 +32,4 @@ def holiday_table(start_year: int, end_year: int, country: str = "DE",
     out = counts.reindex(months, fill_value=0).rename_axis("month").reset_index(name="n_holidays")
     out["days_in_month"] = out["month"].dt.days_in_month
     return out
+
