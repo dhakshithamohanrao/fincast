@@ -11,7 +11,7 @@ from src.training.train_lgbm import PARAMS, REQUIRED_IMPROVEMENT, _fit_predict
 from src.utils.helpers import get_project_root
 
 COPY_LAST = ("Rent", "Subscriptions")   # fixed amounts: copy last month
-
+DROP = ["hicp_lag1", "ecb_rate_lag1", "fixed_share_3"]
 
 def _run_folds(df, feats, train_users=None, test_users=None):
     parts = []
@@ -55,7 +55,7 @@ def run() -> None:
     root = get_project_root()
     df = pd.read_parquet(root / "data" / "processed" / "features.parquet").reset_index(drop=True)
     df["series"] = df["category"].astype(pd.CategoricalDtype(sorted(df["category"].unique())))
-    feats = list(dict.fromkeys(feature_columns(df) + ["series"]))
+    feats = [f for f in dict.fromkeys(feature_columns(df) + ["series"]) if f not in DROP]
      
 
     train_users, holdout = split_users(df)

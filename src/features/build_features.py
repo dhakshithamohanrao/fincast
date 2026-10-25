@@ -19,12 +19,11 @@ WINDOWS = (3, 6)
 FIXED_CATEGORIES = ("Rent", "Utilities", "Subscriptions")
 TOTAL_EXPENSES = "Total expenses"
 ID_COLUMNS = ["user_id", "category", "month", "target"]
-
+DROPPED_FEATURES = ["hicp_lag1", "ecb_rate_lag1", "fixed_share_3"]
 
 def feature_columns(df: pd.DataFrame) -> list:
-    """Every column that is a model input (not an id and not the target)."""
-    return [c for c in df.columns if c not in ID_COLUMNS]
-
+    """Every column that is a model input (not an id, the target or a dropped feature)."""
+    return [c for c in df.columns if c not in ID_COLUMNS and c not in DROPPED_FEATURES]
 
 def _series_table(monthly: pd.DataFrame) -> pd.DataFrame:
     """Long table: user_id, month, category, target (the value to predict)."""

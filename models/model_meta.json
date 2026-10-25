@@ -17,13 +17,10 @@
     "roll_mean_6",
     "roll_std_6",
     "income_vol_6",
-    "fixed_share_3",
     "month_sin",
     "month_cos",
     "n_holidays",
     "days_in_month",
-    "hicp_lag1",
-    "ecb_rate_lag1",
     "series"
   ],
   "categorical_feature": "series",
@@ -58,10 +55,10 @@
     "verbose": -1
   },
   "backtest_metrics": {
-    "variable_mae": 53.54659223624689,
+    "variable_mae": 53.75676548857615,
     "baseline_mae": 65.56389365079364,
     "threshold": 59.00750428571428,
-    "coverage_80": 0.8243253968253968,
-    "total_mae_sum": 262.813118324384
+    "coverage_80": 0.8266666666666667,
+    "total_mae_sum": 264.1506559101181
   }
 }
