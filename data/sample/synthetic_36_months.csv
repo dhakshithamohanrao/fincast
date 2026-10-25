@@ -1,0 +1,695 @@
+date,description,amount
+2023-10-01,Miete 10/2023 Hausverwaltung,-642.0
+2023-10-03,Baeckerei Schmidt,-21.65
+2023-10-04,REWE Markt Berlin,-53.62
+2023-10-04,Lieferando Bestellung,-31.27
+2023-10-05,Stadtwerke Strom Gas,-69.97
+2023-10-08,Netflix.com,-12.99
+2023-10-09,Spotify AB,-10.99
+2023-10-09,EDEKA Center,-43.93
+2023-10-09,Restaurant Il Gabbiano,-30.81
+2023-10-10,FITX Fitnessstudio,-29.9
+2023-10-14,Shell Tankstelle,-128.04
+2023-10-18,ALDI SUED,-45.04
+2023-10-19,Restaurant Il Gabbiano,-50.49
+2023-10-20,Museum Eintritt,-73.5
+2023-10-25,EDEKA Center,-53.71
+2023-10-25,Lieferando Bestellung,-44.16
+2023-10-26,Gehalt 10/2023 Arbeitgeber GmbH,3497.53
+2023-11-01,Miete 11/2023 Hausverwaltung,-642.0
+2023-11-05,Stadtwerke Strom Gas,-100.17
+2023-11-05,ALDI SUED,-53.4
+2023-11-05,Lieferando Bestellung,-49.95
+2023-11-08,Netflix.com,-12.99
+2023-11-09,Spotify AB,-10.99
+2023-11-10,FITX Fitnessstudio,-29.9
+2023-11-10,EDEKA Center,-56.44
+2023-11-11,Restaurant Zur Linde,-50.19
+2023-11-11,Restaurant Zur Linde,-37.23
+2023-11-16,Deutsche Bahn Ticket,-51.82
+2023-11-18,BVG Ticket,-45.1
+2023-11-19,REWE Markt Berlin,-52.28
+2023-11-19,Cafe Einstein,-49.25
+2023-11-21,Steam Games,-157.31
+2023-11-23,Lieferando Bestellung,-44.34
+2023-11-26,Gehalt 11/2023 Arbeitgeber GmbH,3484.88
+2023-11-27,EDEKA Center,-45.1
+2023-12-01,Miete 12/2023 Hausverwaltung,-642.0
+2023-12-02,Uber Trip,-40.82
+2023-12-03,dm Drogeriemarkt,-47.39
+2023-12-05,Stadtwerke Strom Gas,-98.33
+2023-12-06,ALDI SUED,-60.57
+2023-12-06,Weihnachtsgeschenke Amazon,-281.82
+2023-12-06,Steam Games,-28.61
+2023-12-08,Netflix.com,-12.99
+2023-12-09,Spotify AB,-10.99
+2023-12-10,FITX Fitnessstudio,-29.9
+2023-12-12,EDEKA Center,-55.45
+2023-12-12,Cafe Einstein,-31.37
+2023-12-14,Restaurant Zur Linde,-49.66
+2023-12-14,Museum Eintritt,-42.04
+2023-12-15,Weihnachtsgeld 2023 Arbeitgeber GmbH,1922.62
+2023-12-16,REWE Markt Berlin,-43.53
+2023-12-16,Baeckerei Schmidt,-49.37
+2023-12-16,BVG Ticket,-41.4
+2023-12-19,Restaurant Weihnachtsfeier,-84.8
+2023-12-20,Uber Trip,-30.52
+2023-12-22,Museum Eintritt,-37.38
+2023-12-23,ALDI SUED,-38.55
+2023-12-26,Gehalt 12/2023 Arbeitgeber GmbH,3531.5
+2024-01-01,Miete 01/2024 Hausverwaltung,-642.0
+2024-01-02,REWE Markt Berlin,-58.98
+2024-01-02,Baeckerei Schmidt,-52.68
+2024-01-04,Burger Haus,-46.04
+2024-01-05,Stadtwerke Strom Gas,-95.06
+2024-01-05,Bowling Center,-48.9
+2024-01-08,Netflix.com,-12.99
+2024-01-08,Shell Tankstelle,-57.79
+2024-01-09,Spotify AB,-10.99
+2024-01-09,Deutsche Bahn Ticket,-59.35
+2024-01-10,FITX Fitnessstudio,-29.9
+2024-01-10,ALDI SUED,-43.05
+2024-01-11,Kino CineStar,-32.46
+2024-01-12,Kino CineStar,-54.81
+2024-01-17,REWE Markt Berlin,-46.8
+2024-01-18,Zalando Bestellung,-30.3
+2024-01-20,Lieferando Bestellung,-48.53
+2024-01-21,Burger Haus,-40.13
+2024-01-23,REWE Markt Berlin,-48.68
+2024-01-25,Cafe Einstein,-37.49
+2024-01-26,Gehalt 01/2024 Arbeitgeber GmbH,3491.21
+2024-02-01,Miete 02/2024 Hausverwaltung,-642.0
+2024-02-01,Deutsche Bahn Ticket,-41.02
+2024-02-02,Restaurant Zur Linde,-54.53
+2024-02-03,LIDL Filiale 1042,-42.9
+2024-02-03,Baeckerei Schmidt,-39.39
+2024-02-05,Stadtwerke Strom Gas,-93.73
+2024-02-08,Netflix.com,-12.99
+2024-02-09,Spotify AB,-10.99
+2024-02-09,Restaurant Il Gabbiano,-52.49
+2024-02-10,FITX Fitnessstudio,-29.9
+2024-02-10,ALDI SUED,-48.5
+2024-02-12,Uber Trip,-67.12
+2024-02-19,Steam Games,-92.29
+2024-02-20,EDEKA Center,-36.81
+2024-02-25,REWE Markt Berlin,-52.25
+2024-02-25,Restaurant Il Gabbiano,-23.55
+2024-02-25,Burger Haus,-27.5
+2024-02-26,Gehalt 02/2024 Arbeitgeber GmbH,3474.3
+2024-03-01,Miete 03/2024 Hausverwaltung,-642.0
+2024-03-02,Amazon Marketplace,-21.92
+2024-03-05,Stadtwerke Strom Gas,-101.82
+2024-03-05,ALDI SUED,-48.05
+2024-03-05,Restaurant Il Gabbiano,-39.82
+2024-03-08,Netflix.com,-12.99
+2024-03-09,Spotify AB,-10.99
+2024-03-09,REWE Markt Berlin,-45.98
+2024-03-10,FITX Fitnessstudio,-29.9
+2024-03-13,Restaurant Il Gabbiano,-40.27
+2024-03-14,MediaMarkt,-22.93
+2024-03-18,Kino CineStar,-127.08
+2024-03-19,Uber Trip,-49.8
+2024-03-19,Shell Tankstelle,-59.52
+2024-03-20,REWE Markt Berlin,-49.44
+2024-03-23,Burger Haus,-50.62
+2024-03-26,Gehalt 03/2024 Arbeitgeber GmbH,3498.66
+2024-03-27,LIDL Filiale 1042,-33.34
+2024-03-28,Burger Haus,-47.09
+2024-04-01,Miete 04/2024 Hausverwaltung,-642.0
+2024-04-03,ALDI SUED,-37.27
+2024-04-05,Stadtwerke Strom Gas,-80.66
+2024-04-05,Steam Games,-180.6
+2024-04-08,Netflix.com,-12.99
+2024-04-08,Shell Tankstelle,-68.77
+2024-04-09,Spotify AB,-10.99
+2024-04-09,REWE Markt Berlin,-58.98
+2024-04-10,FITX Fitnessstudio,-29.9
+2024-04-11,Cafe Einstein,-48.59
+2024-04-12,Restaurant Il Gabbiano,-37.94
+2024-04-13,Uber Trip,-57.91
+2024-04-15,HUK Versicherung Jahresbeitrag,-312.82
+2024-04-16,Restaurant Zur Linde,-45.62
+2024-04-18,LIDL Filiale 1042,-41.13
+2024-04-24,LIDL Filiale 1042,-52.26
+2024-04-26,Gehalt 04/2024 Arbeitgeber GmbH,3525.33
+2024-05-01,Miete 05/2024 Hausverwaltung,-642.0
+2024-05-05,Stadtwerke Strom Gas,-74.26
+2024-05-06,ALDI SUED,-53.93
+2024-05-06,Restaurant Zur Linde,-26.86
+2024-05-06,Bowling Center,-80.1
+2024-05-07,Shell Tankstelle,-48.1
+2024-05-08,Netflix.com,-12.99
+2024-05-09,Spotify AB,-10.99
+2024-05-10,FITX Fitnessstudio,-29.9
+2024-05-11,Restaurant Il Gabbiano,-44.96
+2024-05-12,REWE Markt Berlin,-46.42
+2024-05-14,Cafe Einstein,-33.07
+2024-05-17,Bowling Center,-77.28
+2024-05-19,EDEKA Center,-52.66
+2024-05-24,ALDI SUED,-52.18
+2024-05-24,BVG Ticket,-72.36
+2024-05-26,Gehalt 05/2024 Arbeitgeber GmbH,3478.03
+2024-05-26,Lieferando Bestellung,-52.38
+2024-06-01,Miete 06/2024 Hausverwaltung,-642.0
+2024-06-02,Baeckerei Schmidt,-48.3
+2024-06-04,REWE Markt Berlin,-49.69
+2024-06-05,Stadtwerke Strom Gas,-76.8
+2024-06-06,Deutsche Bahn Ticket,-45.65
+2024-06-07,Museum Eintritt,-56.2
+2024-06-08,Netflix.com,-12.99
+2024-06-09,Spotify AB,-10.99
+2024-06-09,REWE Markt Berlin,-47.98
+2024-06-10,FITX Fitnessstudio,-29.9
+2024-06-15,BVG Ticket,-44.78
+2024-06-18,Museum Eintritt,-77.71
+2024-06-20,ALDI SUED,-59.7
+2024-06-20,Cafe Einstein,-39.22
+2024-06-21,Deutsche Bahn Ticket,-27.62
+2024-06-21,MediaMarkt,-50.54
+2024-06-23,REWE Markt Berlin,-52.63
+2024-06-26,Gehalt 06/2024 Arbeitgeber GmbH,3498.92
+2024-06-27,Restaurant Zur Linde,-26.52
+2024-06-28,KFZ Werkstatt Reparatur,-681.48
+2024-07-01,Miete 07/2024 Hausverwaltung,-642.0
+2024-07-01,Cafe Einstein,-36.9
+2024-07-01,Deutsche Bahn Ticket,-60.07
+2024-07-02,LIDL Filiale 1042,-46.95
+2024-07-05,Stadtwerke Strom Gas,-74.44
+2024-07-05,Booking.com Urlaub,-1218.02
+2024-07-07,Zalando Bestellung,-17.5
+2024-07-08,Netflix.com,-12.99
+2024-07-09,Spotify AB,-10.99
+2024-07-10,FITX Fitnessstudio,-29.9
+2024-07-10,Restaurant Zur Linde,-46.17
+2024-07-12,LIDL Filiale 1042,-60.8
+2024-07-16,REWE Markt Berlin,-60.86
+2024-07-19,Lieferando Bestellung,-42.9
+2024-07-19,dm Drogeriemarkt,-14.36
+2024-07-20,Shell Tankstelle,-67.56
+2024-07-21,Bowling Center,-178.8
+2024-07-23,Cafe Einstein,-27.17
+2024-07-25,REWE Markt Berlin,-60.69
+2024-07-26,Gehalt 07/2024 Arbeitgeber GmbH,3467.41
+2024-08-01,Miete 08/2024 Hausverwaltung,-642.0
+2024-08-02,Cafe Einstein,-38.6
+2024-08-03,Zahnarzt Dr. Weber,-81.13
+2024-08-04,Museum Eintritt,-55.65
+2024-08-05,Stadtwerke Strom Gas,-77.12
+2024-08-05,LIDL Filiale 1042,-54.85
+2024-08-08,Netflix.com,-12.99
+2024-08-08,Amazon Marketplace,-56.9
+2024-08-09,Spotify AB,-10.99
+2024-08-09,Museum Eintritt,-32.89
+2024-08-10,FITX Fitnessstudio,-29.9
+2024-08-10,REWE Markt Berlin,-43.67
+2024-08-15,Shell Tankstelle,-70.05
+2024-08-17,Burger Haus,-43.18
+2024-08-17,Shell Tankstelle,-46.4
+2024-08-20,EDEKA Center,-61.42
+2024-08-23,LIDL Filiale 1042,-35.78
+2024-08-23,Cafe Einstein,-53.95
+2024-08-24,Baeckerei Schmidt,-24.46
+2024-08-26,Gehalt 08/2024 Arbeitgeber GmbH,3480.98
+2024-08-27,Lieferando Bestellung,-37.73
+2024-09-01,Miete 09/2024 Hausverwaltung,-642.0
+2024-09-03,Baeckerei Schmidt,-24.68
+2024-09-05,Stadtwerke Strom Gas,-74.46
+2024-09-05,REWE Markt Berlin,-58.93
+2024-09-08,Netflix.com,-12.99
+2024-09-09,Spotify AB,-10.99
+2024-09-10,FITX Fitnessstudio,-29.9
+2024-09-11,Amazon Marketplace,-36.77
+2024-09-11,Eventim Tickets,-26.89
+2024-09-13,EDEKA Center,-53.17
+2024-09-14,Shell Tankstelle,-104.28
+2024-09-17,Cafe Einstein,-46.58
+2024-09-18,Cafe Einstein,-46.92
+2024-09-19,Steam Games,-40.4
+2024-09-20,ALDI SUED,-49.02
+2024-09-21,Museum Eintritt,-22.44
+2024-09-26,Gehalt 09/2024 Arbeitgeber GmbH,3518.74
+2024-09-27,EDEKA Center,-48.94
+2024-10-01,Miete 10/2024 Hausverwaltung,-642.0
+2024-10-04,Cafe Einstein,-48.34
+2024-10-05,Stadtwerke Strom Gas,-74.35
+2024-10-06,ALDI SUED,-53.59
+2024-10-08,Netflix.com,-12.99
+2024-10-08,MediaMarkt,-27.03
+2024-10-09,Spotify AB,-10.99
+2024-10-10,FITX Fitnessstudio,-29.9
+2024-10-10,Amazon Marketplace,-21.22
+2024-10-11,Cafe Einstein,-38.69
+2024-10-13,EDEKA Center,-40.92
+2024-10-13,Burger Haus,-29.16
+2024-10-17,ALDI SUED,-35.57
+2024-10-17,Eventim Tickets,-38.05
+2024-10-18,Bowling Center,-40.08
+2024-10-21,BVG Ticket,-91.67
+2024-10-22,Steam Games,-40.21
+2024-10-26,Gehalt 10/2024 Arbeitgeber GmbH,3504.19
+2024-10-27,REWE Markt Berlin,-35.49
+2024-11-01,Miete 11/2024 Hausverwaltung,-642.0
+2024-11-01,Zalando Bestellung,-36.81
+2024-11-02,EDEKA Center,-53.76
+2024-11-02,Cafe Einstein,-28.58
+2024-11-04,Restaurant Zur Linde,-39.08
+2024-11-04,Uber Trip,-32.74
+2024-11-04,Deutsche Bahn Ticket,-34.42
+2024-11-05,Stadtwerke Strom Gas,-97.34
+2024-11-05,Eventim Tickets,-30.03
+2024-11-08,Netflix.com,-12.99
+2024-11-09,Spotify AB,-10.99
+2024-11-10,FITX Fitnessstudio,-29.9
+2024-11-11,ALDI SUED,-36.48
+2024-11-11,Kino CineStar,-28.95
+2024-11-16,EDEKA Center,-51.8
+2024-11-22,Deutsche Bahn Ticket,-39.89
+2024-11-23,LIDL Filiale 1042,-56.84
+2024-11-23,Baeckerei Schmidt,-23.84
+2024-11-26,Gehalt 11/2024 Arbeitgeber GmbH,3466.83
+2024-11-28,Steam Games,-26.98
+2024-12-01,Miete 12/2024 Hausverwaltung,-642.0
+2024-12-05,Stadtwerke Strom Gas,-97.59
+2024-12-06,EDEKA Center,-62.66
+2024-12-07,MediaMarkt,-54.06
+2024-12-08,Netflix.com,-12.99
+2024-12-09,Spotify AB,-10.99
+2024-12-10,FITX Fitnessstudio,-29.9
+2024-12-10,LIDL Filiale 1042,-49.38
+2024-12-11,Restaurant Il Gabbiano,-35.76
+2024-12-15,Weihnachtsgeld 2024 Arbeitgeber GmbH,2115.96
+2024-12-16,Steam Games,-102.5
+2024-12-17,Lieferando Bestellung,-26.17
+2024-12-17,Deutsche Bahn Ticket,-101.89
+2024-12-18,REWE Markt Berlin,-37.22
+2024-12-19,Restaurant Zur Linde,-47.63
+2024-12-20,Cafe Einstein,-48.78
+2024-12-20,Weihnachtsgeschenke Amazon,-357.9
+2024-12-21,Restaurant Weihnachtsfeier,-47.05
+2024-12-25,Eventim Tickets,-83.93
+2024-12-26,Gehalt 12/2024 Arbeitgeber GmbH,3524.61
+2024-12-27,ALDI SUED,-35.81
+2024-12-27,Cafe Einstein,-35.43
+2025-01-01,Miete 01/2025 Hausverwaltung,-642.0
+2025-01-02,Lieferando Bestellung,-54.89
+2025-01-03,LIDL Filiale 1042,-57.69
+2025-01-05,Stadtwerke Strom Gas,-100.31
+2025-01-06,Cafe Einstein,-26.83
+2025-01-06,BVG Ticket,-26.88
+2025-01-08,Netflix.com,-12.99
+2025-01-09,Spotify AB,-10.99
+2025-01-09,dm Drogeriemarkt,-54.68
+2025-01-10,FITX Fitnessstudio,-29.9
+2025-01-11,LIDL Filiale 1042,-39.44
+2025-01-14,Cafe Einstein,-22.55
+2025-01-14,Steam Games,-77.42
+2025-01-15,Cafe Einstein,-53.64
+2025-01-17,Deutsche Bahn Ticket,-43.39
+2025-01-18,ALDI SUED,-41.81
+2025-01-23,REWE Markt Berlin,-63.37
+2025-01-23,Restaurant Il Gabbiano,-24.94
+2025-01-25,Deutsche Bahn Ticket,-41.33
+2025-01-25,Steam Games,-87.85
+2025-01-26,Gehalt 01/2025 Arbeitgeber GmbH,3476.62
+2025-02-01,Miete 02/2025 Hausverwaltung,-642.0
+2025-02-01,Uber Trip,-29.47
+2025-02-02,REWE Markt Berlin,-47.11
+2025-02-05,Stadtwerke Strom Gas,-102.41
+2025-02-05,BVG Ticket,-30.06
+2025-02-05,Kino CineStar,-48.91
+2025-02-08,Netflix.com,-12.99
+2025-02-09,Spotify AB,-10.99
+2025-02-10,FITX Fitnessstudio,-29.9
+2025-02-10,ALDI SUED,-43.24
+2025-02-12,Eventim Tickets,-40.31
+2025-02-16,Uber Trip,-42.96
+2025-02-17,Restaurant Zur Linde,-24.42
+2025-02-18,REWE Markt Berlin,-37.34
+2025-02-24,Cafe Einstein,-46.28
+2025-02-25,EDEKA Center,-59.91
+2025-02-25,Cafe Einstein,-38.43
+2025-02-26,Gehalt 02/2025 Arbeitgeber GmbH,3494.11
+2025-03-01,Miete 03/2025 Hausverwaltung,-642.0
+2025-03-05,Stadtwerke Strom Gas,-97.63
+2025-03-05,EDEKA Center,-55.69
+2025-03-08,Netflix.com,-12.99
+2025-03-09,Spotify AB,-10.99
+2025-03-10,FITX Fitnessstudio,-29.9
+2025-03-10,Burger Haus,-38.3
+2025-03-13,LIDL Filiale 1042,-40.17
+2025-03-13,Restaurant Il Gabbiano,-51.3
+2025-03-16,REWE Markt Berlin,-46.55
+2025-03-17,Kino CineStar,-44.63
+2025-03-20,Deutsche Bahn Ticket,-120.52
+2025-03-23,Restaurant Il Gabbiano,-51.23
+2025-03-23,Bowling Center,-27.32
+2025-03-26,Gehalt 03/2025 Arbeitgeber GmbH,3465.81
+2025-03-27,ALDI SUED,-58.6
+2025-04-01,Miete 04/2025 Hausverwaltung,-642.0
+2025-04-03,Baeckerei Schmidt,-32.3
+2025-04-03,Deutsche Bahn Ticket,-29.95
+2025-04-04,REWE Markt Berlin,-46.48
+2025-04-05,Stadtwerke Strom Gas,-74.88
+2025-04-05,Lieferando Bestellung,-47.85
+2025-04-06,Eventim Tickets,-94.08
+2025-04-08,Netflix.com,-12.99
+2025-04-08,Cafe Einstein,-42.64
+2025-04-09,Spotify AB,-10.99
+2025-04-10,FITX Fitnessstudio,-29.9
+2025-04-10,ALDI SUED,-43.32
+2025-04-11,BVG Ticket,-33.84
+2025-04-13,Uber Trip,-35.42
+2025-04-14,Lieferando Bestellung,-41.82
+2025-04-15,HUK Versicherung Jahresbeitrag,-329.21
+2025-04-16,ALDI SUED,-57.64
+2025-04-23,REWE Markt Berlin,-40.75
+2025-04-26,Gehalt 04/2025 Arbeitgeber GmbH,3498.88
+2025-04-27,Zalando Bestellung,-46.31
+2025-05-01,Miete 05/2025 Hausverwaltung,-642.0
+2025-05-02,EDEKA Center,-59.9
+2025-05-02,Restaurant Il Gabbiano,-53.95
+2025-05-05,Stadtwerke Strom Gas,-73.63
+2025-05-08,Netflix.com,-12.99
+2025-05-08,Cafe Einstein,-52.43
+2025-05-09,Spotify AB,-10.99
+2025-05-10,FITX Fitnessstudio,-29.9
+2025-05-13,LIDL Filiale 1042,-35.99
+2025-05-13,Baeckerei Schmidt,-47.69
+2025-05-15,Restaurant Il Gabbiano,-54.73
+2025-05-18,REWE Markt Berlin,-47.37
+2025-05-19,Kino CineStar,-46.33
+2025-05-21,Steam Games,-54.97
+2025-05-25,Uber Trip,-98.35
+2025-05-26,Gehalt 05/2025 Arbeitgeber GmbH,3527.44
+2025-05-27,REWE Markt Berlin,-39.85
+2025-06-01,Miete 06/2025 Hausverwaltung,-642.0
+2025-06-01,Burger Haus,-39.56
+2025-06-03,REWE Markt Berlin,-59.32
+2025-06-03,Burger Haus,-27.37
+2025-06-03,dm Drogeriemarkt,-15.67
+2025-06-03,Eventim Tickets,-52.3
+2025-06-05,Stadtwerke Strom Gas,-75.49
+2025-06-08,Netflix.com,-12.99
+2025-06-09,Spotify AB,-10.99
+2025-06-10,FITX Fitnessstudio,-29.9
+2025-06-11,EDEKA Center,-53.79
+2025-06-11,Restaurant Zur Linde,-54.16
+2025-06-17,Amazon Marketplace,-23.22
+2025-06-19,EDEKA Center,-48.71
+2025-06-19,Uber Trip,-64.04
+2025-06-20,Museum Eintritt,-45.16
+2025-06-23,BVG Ticket,-58.9
+2025-06-26,Gehalt 06/2025 Arbeitgeber GmbH,3531.68
+2025-06-26,ALDI SUED,-36.76
+2025-07-01,Miete 07/2025 Hausverwaltung,-642.0
+2025-07-01,Burger Haus,-33.88
+2025-07-02,Amazon Marketplace,-20.58
+2025-07-05,Stadtwerke Strom Gas,-73.34
+2025-07-05,LIDL Filiale 1042,-39.06
+2025-07-06,BVG Ticket,-53.93
+2025-07-08,Netflix.com,-12.99
+2025-07-09,Spotify AB,-10.99
+2025-07-09,Booking.com Urlaub,-1046.98
+2025-07-09,Kino CineStar,-103.54
+2025-07-09,Steam Games,-96.8
+2025-07-10,FITX Fitnessstudio,-29.9
+2025-07-12,ALDI SUED,-43.44
+2025-07-18,EDEKA Center,-42.55
+2025-07-21,Lieferando Bestellung,-34.44
+2025-07-22,dm Drogeriemarkt,-21.17
+2025-07-25,Uber Trip,-44.63
+2025-07-26,Gehalt 07/2025 Arbeitgeber GmbH,3514.37
+2025-07-26,ALDI SUED,-53.54
+2025-07-27,Lieferando Bestellung,-47.41
+2025-07-27,Restaurant Il Gabbiano,-42.68
+2025-08-01,Miete 08/2025 Hausverwaltung,-642.0
+2025-08-05,Stadtwerke Strom Gas,-75.37
+2025-08-05,EDEKA Center,-57.91
+2025-08-07,Restaurant Zur Linde,-52.97
+2025-08-08,Netflix.com,-12.99
+2025-08-08,BVG Ticket,-126.44
+2025-08-09,Spotify AB,-10.99
+2025-08-09,Eventim Tickets,-95.94
+2025-08-10,FITX Fitnessstudio,-29.9
+2025-08-11,Burger Haus,-36.98
+2025-08-12,REWE Markt Berlin,-60.7
+2025-08-16,EDEKA Center,-62.54
+2025-08-22,Restaurant Zur Linde,-50.0
+2025-08-22,Museum Eintritt,-83.06
+2025-08-23,Baeckerei Schmidt,-23.01
+2025-08-26,Gehalt 08/2025 Arbeitgeber GmbH,3530.93
+2025-08-26,Cafe Einstein,-28.1
+2025-08-27,LIDL Filiale 1042,-41.83
+2025-09-01,Miete 09/2025 Hausverwaltung,-642.0
+2025-09-05,Stadtwerke Strom Gas,-81.14
+2025-09-05,LIDL Filiale 1042,-53.85
+2025-09-07,Cafe Einstein,-45.47
+2025-09-07,Restaurant Zur Linde,-51.47
+2025-09-08,Netflix.com,-12.99
+2025-09-09,Spotify AB,-10.99
+2025-09-09,REWE Markt Berlin,-43.75
+2025-09-10,FITX Fitnessstudio,-29.9
+2025-09-10,Burger Haus,-24.83
+2025-09-10,Museum Eintritt,-59.38
+2025-09-16,LIDL Filiale 1042,-49.6
+2025-09-18,Museum Eintritt,-39.33
+2025-09-19,KFZ Werkstatt Reparatur,-459.95
+2025-09-20,Burger Haus,-42.17
+2025-09-23,Deutsche Bahn Ticket,-63.37
+2025-09-24,ALDI SUED,-39.56
+2025-09-26,Gehalt 09/2025 Arbeitgeber GmbH,3484.84
+2025-09-26,MediaMarkt,-46.69
+2025-09-27,BVG Ticket,-58.59
+2025-10-01,Miete 10/2025 Hausverwaltung,-642.0
+2025-10-02,REWE Markt Berlin,-44.73
+2025-10-04,Cafe Einstein,-25.97
+2025-10-05,Stadtwerke Strom Gas,-79.81
+2025-10-06,Baeckerei Schmidt,-23.63
+2025-10-07,Shell Tankstelle,-47.81
+2025-10-07,Shell Tankstelle,-32.99
+2025-10-08,Netflix.com,-12.99
+2025-10-09,Spotify AB,-10.99
+2025-10-10,FITX Fitnessstudio,-29.9
+2025-10-12,dm Drogeriemarkt,-19.74
+2025-10-13,ALDI SUED,-47.39
+2025-10-14,MediaMarkt,-21.72
+2025-10-16,EDEKA Center,-51.17
+2025-10-16,Bowling Center,-235.98
+2025-10-20,Shell Tankstelle,-30.73
+2025-10-24,ALDI SUED,-55.14
+2025-10-26,Gehalt 10/2025 Arbeitgeber GmbH,3504.01
+2025-10-28,Restaurant Zur Linde,-23.05
+2025-11-01,Miete 11/2025 Hausverwaltung,-642.0
+2025-11-02,Restaurant Zur Linde,-52.19
+2025-11-04,EDEKA Center,-55.74
+2025-11-05,Stadtwerke Strom Gas,-98.31
+2025-11-08,Netflix.com,-12.99
+2025-11-08,Kino CineStar,-53.26
+2025-11-09,Spotify AB,-10.99
+2025-11-10,FITX Fitnessstudio,-29.9
+2025-11-10,LIDL Filiale 1042,-46.07
+2025-11-10,Amazon Marketplace,-31.96
+2025-11-13,Burger Haus,-49.07
+2025-11-16,Eventim Tickets,-33.17
+2025-11-20,LIDL Filiale 1042,-46.4
+2025-11-21,Lieferando Bestellung,-26.66
+2025-11-24,ALDI SUED,-63.47
+2025-11-24,Baeckerei Schmidt,-30.52
+2025-11-26,Gehalt 11/2025 Arbeitgeber GmbH,3490.71
+2025-11-26,Deutsche Bahn Ticket,-55.35
+2025-11-27,BVG Ticket,-43.01
+2025-11-28,Cafe Einstein,-53.16
+2025-12-01,Miete 12/2025 Hausverwaltung,-642.0
+2025-12-02,Deutsche Bahn Ticket,-47.62
+2025-12-03,BVG Ticket,-31.0
+2025-12-05,Stadtwerke Strom Gas,-100.8
+2025-12-05,EDEKA Center,-45.14
+2025-12-06,Weihnachtsgeschenke Amazon,-199.13
+2025-12-08,Netflix.com,-12.99
+2025-12-09,Spotify AB,-10.99
+2025-12-09,Cafe Einstein,-42.52
+2025-12-10,FITX Fitnessstudio,-29.9
+2025-12-12,REWE Markt Berlin,-60.13
+2025-12-12,Bowling Center,-77.96
+2025-12-14,Baeckerei Schmidt,-42.6
+2025-12-15,Weihnachtsgeld 2025 Arbeitgeber GmbH,2445.23
+2025-12-15,Uber Trip,-42.12
+2025-12-18,Restaurant Weihnachtsfeier,-51.57
+2025-12-19,Zalando Bestellung,-30.86
+2025-12-19,Steam Games,-83.35
+2025-12-20,REWE Markt Berlin,-57.41
+2025-12-24,EDEKA Center,-41.61
+2025-12-25,Lieferando Bestellung,-52.57
+2025-12-26,Gehalt 12/2025 Arbeitgeber GmbH,3477.11
+2026-01-01,Miete 01/2026 Hausverwaltung,-642.0
+2026-01-01,Cafe Einstein,-33.73
+2026-01-02,REWE Markt Berlin,-53.35
+2026-01-02,Cafe Einstein,-34.77
+2026-01-03,BVG Ticket,-59.99
+2026-01-04,Baeckerei Schmidt,-46.84
+2026-01-05,Stadtwerke Strom Gas,-109.97
+2026-01-05,Uber Trip,-67.75
+2026-01-07,Burger Haus,-44.53
+2026-01-08,Netflix.com,-12.99
+2026-01-09,Spotify AB,-10.99
+2026-01-10,FITX Fitnessstudio,-29.9
+2026-01-13,LIDL Filiale 1042,-57.9
+2026-01-14,Eventim Tickets,-85.83
+2026-01-18,REWE Markt Berlin,-55.03
+2026-01-20,Lieferando Bestellung,-47.6
+2026-01-26,Gehalt 01/2026 Arbeitgeber GmbH,3532.62
+2026-01-26,ALDI SUED,-46.41
+2026-01-26,Eventim Tickets,-72.1
+2026-01-27,dm Drogeriemarkt,-25.83
+2026-01-28,Zalando Bestellung,-23.15
+2026-02-01,Miete 02/2026 Hausverwaltung,-642.0
+2026-02-02,EDEKA Center,-52.98
+2026-02-05,Stadtwerke Strom Gas,-106.6
+2026-02-07,Baeckerei Schmidt,-53.52
+2026-02-08,Netflix.com,-12.99
+2026-02-08,Bowling Center,-147.06
+2026-02-09,Spotify AB,-10.99
+2026-02-10,FITX Fitnessstudio,-29.9
+2026-02-11,LIDL Filiale 1042,-62.4
+2026-02-14,Uber Trip,-106.35
+2026-02-20,REWE Markt Berlin,-39.14
+2026-02-22,Restaurant Zur Linde,-42.88
+2026-02-25,LIDL Filiale 1042,-42.34
+2026-02-25,Restaurant Zur Linde,-42.32
+2026-02-25,Cafe Einstein,-27.44
+2026-02-26,Gehalt 02/2026 Arbeitgeber GmbH,3511.13
+2026-02-28,Lieferando Bestellung,-41.56
+2026-03-01,Miete 03/2026 Hausverwaltung,-642.0
+2026-03-04,Burger Haus,-33.45
+2026-03-04,Uber Trip,-36.38
+2026-03-05,Stadtwerke Strom Gas,-105.43
+2026-03-05,Shell Tankstelle,-46.86
+2026-03-06,LIDL Filiale 1042,-57.65
+2026-03-08,Netflix.com,-12.99
+2026-03-09,Spotify AB,-10.99
+2026-03-10,FITX Fitnessstudio,-29.9
+2026-03-11,LIDL Filiale 1042,-63.28
+2026-03-12,Baeckerei Schmidt,-37.59
+2026-03-17,Kino CineStar,-81.56
+2026-03-19,LIDL Filiale 1042,-41.23
+2026-03-21,Baeckerei Schmidt,-44.15
+2026-03-23,LIDL Filiale 1042,-47.27
+2026-03-25,Burger Haus,-24.09
+2026-03-26,Gehalt 03/2026 Arbeitgeber GmbH,3512.24
+2026-03-27,Restaurant Zur Linde,-33.92
+2026-03-27,BVG Ticket,-32.7
+2026-04-01,Miete 04/2026 Hausverwaltung,-642.0
+2026-04-05,Stadtwerke Strom Gas,-85.28
+2026-04-06,EDEKA Center,-59.51
+2026-04-08,Netflix.com,-12.99
+2026-04-09,Spotify AB,-10.99
+2026-04-10,FITX Fitnessstudio,-29.9
+2026-04-11,Lieferando Bestellung,-44.05
+2026-04-13,LIDL Filiale 1042,-58.44
+2026-04-14,Uber Trip,-89.04
+2026-04-14,Kino CineStar,-108.71
+2026-04-15,HUK Versicherung Jahresbeitrag,-164.48
+2026-04-16,REWE Markt Berlin,-36.02
+2026-04-18,Amazon Marketplace,-17.62
+2026-04-21,Lieferando Bestellung,-24.35
+2026-04-23,dm Drogeriemarkt,-29.98
+2026-04-24,REWE Markt Berlin,-45.05
+2026-04-24,Lieferando Bestellung,-42.9
+2026-04-26,Gehalt 04/2026 Arbeitgeber GmbH,3530.95
+2026-05-01,Miete 05/2026 Hausverwaltung,-642.0
+2026-05-01,Bowling Center,-39.38
+2026-05-04,LIDL Filiale 1042,-52.85
+2026-05-04,BVG Ticket,-36.2
+2026-05-05,Stadtwerke Strom Gas,-83.29
+2026-05-08,Netflix.com,-12.99
+2026-05-09,Spotify AB,-10.99
+2026-05-10,FITX Fitnessstudio,-29.9
+2026-05-10,EDEKA Center,-36.02
+2026-05-14,Baeckerei Schmidt,-47.23
+2026-05-16,Eventim Tickets,-60.23
+2026-05-17,Lieferando Bestellung,-45.04
+2026-05-18,EDEKA Center,-53.51
+2026-05-21,Cafe Einstein,-38.88
+2026-05-23,EDEKA Center,-44.17
+2026-05-24,Shell Tankstelle,-50.22
+2026-05-25,Cafe Einstein,-28.99
+2026-05-26,Gehalt 05/2026 Arbeitgeber GmbH,3501.13
+2026-05-26,Museum Eintritt,-47.18
+2026-05-28,BVG Ticket,-50.05
+2026-06-01,Miete 06/2026 Hausverwaltung,-642.0
+2026-06-04,Amazon Marketplace,-17.56
+2026-06-05,Stadtwerke Strom Gas,-78.46
+2026-06-06,ALDI SUED,-51.97
+2026-06-08,Netflix.com,-12.99
+2026-06-08,Uber Trip,-57.98
+2026-06-09,Spotify AB,-10.99
+2026-06-10,FITX Fitnessstudio,-29.9
+2026-06-10,EDEKA Center,-54.91
+2026-06-13,Burger Haus,-54.79
+2026-06-14,BVG Ticket,-75.69
+2026-06-16,Burger Haus,-35.0
+2026-06-18,LIDL Filiale 1042,-43.99
+2026-06-20,Amazon Marketplace,-32.84
+2026-06-24,ALDI SUED,-38.2
+2026-06-25,Steam Games,-118.44
+2026-06-26,Gehalt 06/2026 Arbeitgeber GmbH,3481.55
+2026-06-26,Lieferando Bestellung,-43.02
+2026-06-28,Eventim Tickets,-70.31
+2026-07-01,Miete 07/2026 Hausverwaltung,-642.0
+2026-07-02,Restaurant Zur Linde,-56.51
+2026-07-03,Uber Trip,-30.77
+2026-07-05,Stadtwerke Strom Gas,-81.4
+2026-07-05,ALDI SUED,-64.52
+2026-07-05,Lieferando Bestellung,-44.35
+2026-07-08,Netflix.com,-12.99
+2026-07-08,Eventim Tickets,-58.31
+2026-07-09,Spotify AB,-10.99
+2026-07-09,Restaurant Zur Linde,-26.13
+2026-07-10,FITX Fitnessstudio,-29.9
+2026-07-13,LIDL Filiale 1042,-58.22
+2026-07-16,EDEKA Center,-36.94
+2026-07-17,Lieferando Bestellung,-39.43
+2026-07-18,Deutsche Bahn Ticket,-32.96
+2026-07-24,LIDL Filiale 1042,-46.64
+2026-07-26,Gehalt 07/2026 Arbeitgeber GmbH,3518.64
+2026-07-26,BVG Ticket,-29.88
+2026-07-27,Restaurant Zur Linde,-30.13
+2026-07-28,Bowling Center,-32.76
+2026-08-01,Miete 08/2026 Hausverwaltung,-642.0
+2026-08-02,ALDI SUED,-36.82
+2026-08-02,Eventim Tickets,-55.86
+2026-08-05,Stadtwerke Strom Gas,-76.54
+2026-08-06,Burger Haus,-50.72
+2026-08-08,Netflix.com,-12.99
+2026-08-09,Spotify AB,-10.99
+2026-08-09,Baeckerei Schmidt,-58.42
+2026-08-10,FITX Fitnessstudio,-29.9
+2026-08-10,Restaurant Zur Linde,-52.91
+2026-08-11,ALDI SUED,-66.32
+2026-08-15,Booking.com Urlaub,-1454.48
+2026-08-16,Lieferando Bestellung,-57.38
+2026-08-19,BVG Ticket,-106.14
+2026-08-20,REWE Markt Berlin,-38.81
+2026-08-24,ALDI SUED,-64.35
+2026-08-26,Gehalt 08/2026 Arbeitgeber GmbH,3517.4
+2026-08-27,Kino CineStar,-37.03
+2026-09-01,Miete 09/2026 Hausverwaltung,-642.0
+2026-09-03,Deutsche Bahn Ticket,-39.55
+2026-09-05,Stadtwerke Strom Gas,-80.93
+2026-09-06,EDEKA Center,-53.48
+2026-09-08,Netflix.com,-12.99
+2026-09-09,Spotify AB,-10.99
+2026-09-09,EDEKA Center,-64.91
+2026-09-10,FITX Fitnessstudio,-29.9
+2026-09-12,Steam Games,-54.0
+2026-09-14,Restaurant Zur Linde,-46.3
+2026-09-16,EDEKA Center,-40.46
+2026-09-18,Lieferando Bestellung,-34.37
+2026-09-20,BVG Ticket,-47.43
+2026-09-20,Steam Games,-66.01
+2026-09-21,Baeckerei Schmidt,-39.5
+2026-09-22,Baeckerei Schmidt,-37.95
+2026-09-25,Restaurant Zur Linde,-54.87
+2026-09-25,BVG Ticket,-31.16
+2026-09-26,Gehalt 09/2026 Arbeitgeber GmbH,3478.27
+2026-09-26,REWE Markt Berlin,-51.25
