@@ -120,3 +120,25 @@ def save_corrections(user_id: int, corrections: pd.DataFrame) -> int:
     finally:
         conn.close()
     return len(rows)
+
+def save_forecast(user_id: int, target_month, table: pd.DataFrame, model_version: str) -> int:
+    """Store one forecast row per series for a target month ('YYYY-MM').
+
+    Existing rows are kept (one forecast per user, month and series), so a past
+    forecast is never overwritten and can later be compared with the real value.
+    Returns how many rows were added.
+    """
+    month = pd.Timestamp(target_month).strftime("%Y-%m")
+    added = 0
+    with closing(get_connection()) as conn:
+        for row in table.itertuples(index=False):
+            cur = conn.execute(
+                """INSERT OR IGNORE INTO forecasts
+                   (user_id, target_month, metric, predicted, lower, upper, model_version)
+                   VALUES (?, ?, ?, ?, ?, ?, ?)""",
+                (user_id, month, str(row.series), float(row.forecast),
+                 float(row.lower), float(row.upper), model_version),
+            )
+            added += cur.rowcount
+        conn.commit()
+    return added
