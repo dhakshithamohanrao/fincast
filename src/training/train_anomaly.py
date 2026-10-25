@@ -109,10 +109,11 @@ def run() -> None:
     print("\nDetection of injected anomalies on held-out users:")
     print(table[SHOW].round(3).to_string(index=False))
 
-    combined = table[table["setting"].str.endswith("+ rules")]
-    best = combined.loc[combined["f1"].idxmax()]
-    best_c = float(best["contamination"])
-    print(f"\nBest setting by F1: {best['setting']}")
+    # Rules give the alerts; the forest only ranks "unusual" rows. We save and log
+    # the combined setting that the README and the Anomalies page describe.
+    best = table[table["setting"] == "forest 0.02 + rules"].iloc[0]
+    best_c = 0.02
+    print(f"\nSaved setting: {best['setting']}")
 
     final = IsolationForest(contamination=best_c, random_state=seed, **FOREST)
     final.fit(build_anomaly_features(df))
