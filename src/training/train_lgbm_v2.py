@@ -56,6 +56,7 @@ def run() -> None:
     df = pd.read_parquet(root / "data" / "processed" / "features.parquet").reset_index(drop=True)
     df["series"] = df["category"].astype(pd.CategoricalDtype(sorted(df["category"].unique())))
     feats = list(dict.fromkeys(feature_columns(df) + ["series"]))
+     
 
     train_users, holdout = split_users(df)
     print(f"Cold start: {len(train_users)} train users, {len(holdout)} held-out users")

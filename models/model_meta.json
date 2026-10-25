@@ -1,0 +1,67 @@
+{
+  "model_version": "lgbm-2026-10-25",
+  "created": "2026-10-25",
+  "champion": "lgbm",
+  "baseline": "same_month_last_year (lag_12)",
+  "copy_last_month": [
+    "Rent",
+    "Subscriptions"
+  ],
+  "features": [
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_12",
+    "roll_mean_3",
+    "roll_std_3",
+    "roll_mean_6",
+    "roll_std_6",
+    "income_vol_6",
+    "fixed_share_3",
+    "month_sin",
+    "month_cos",
+    "n_holidays",
+    "days_in_month",
+    "hicp_lag1",
+    "ecb_rate_lag1",
+    "series"
+  ],
+  "categorical_feature": "series",
+  "series_categories": [
+    "Dining",
+    "Groceries",
+    "Health",
+    "Income",
+    "Leisure",
+    "Other",
+    "Rent",
+    "Shopping",
+    "Subscriptions",
+    "Total expenses",
+    "Transport",
+    "Utilities"
+  ],
+  "trained_months": [
+    "2024-10",
+    "2026-09"
+  ],
+  "n_rows": 86400,
+  "params": {
+    "n_estimators": 400,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 50,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "verbose": -1
+  },
+  "backtest_metrics": {
+    "variable_mae": 53.54659223624689,
+    "baseline_mae": 65.56389365079364,
+    "threshold": 59.00750428571428,
+    "coverage_80": 0.8243253968253968,
+    "total_mae_sum": 262.813118324384
+  }
+}
