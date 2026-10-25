@@ -1,4 +1,4 @@
-"""Phase 7.10: train and export the Isolation Forest anomaly model.
+"""Phase 7.10: train and export the anomaly model (Isolation Forest + simple rules).
 
 Evaluation: 20% of the users are held out and get fake anomalies injected
 (duplicate charges, amount spikes, unknown merchants). The model is trained
@@ -10,7 +10,12 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 
-from src.features.anomaly_features import FEATURE_COLUMNS, build_anomaly_features
+from src.features.anomaly_features import (
+    FEATURE_COLUMNS,
+    SPIKE_Z,
+    build_anomaly_features,
+    rule_flags,
+)
 from src.utils.helpers import get_project_root, load_config
 
 REQUIRED_COLUMNS = ["user_id", "date", "description", "amount"]
@@ -18,6 +23,8 @@ CONTAMINATION_GRID = [0.001, 0.002, 0.005, 0.01, 0.02]
 INJECT_RATE = 0.002          # share of rows copied into EACH kind of fake anomaly
 KINDS = ("duplicate", "spike", "new_merchant")
 FOREST = dict(n_estimators=200, n_jobs=-1)
+SHOW = ["setting", "flagged", "false_alarms", "precision", "recall", "f1",
+        "recall_duplicate", "recall_spike", "recall_new_merchant"]
 
 
 def load_transactions() -> pd.DataFrame:
@@ -53,22 +60,30 @@ def inject_anomalies(df: pd.DataFrame, rng: np.random.Generator) -> pd.DataFrame
     return pd.concat([df, dup, spike, new], ignore_index=True)
 
 
-def evaluate(scores_train, scores_eval, kinds: pd.Series) -> pd.DataFrame:
-    """Flag rows scoring below the contamination quantile of the training scores."""
+def _scores(flagged: np.ndarray, kinds: pd.Series) -> dict:
     injected = (kinds != "normal").to_numpy()
-    rows = []
+    tp = int((flagged & injected).sum())
+    n_flagged = int(flagged.sum())
+    precision = tp / max(n_flagged, 1)
+    recall = tp / int(injected.sum())
+    f1 = 2 * precision * recall / (precision + recall) if tp else 0.0
+    row = {"flagged": n_flagged, "false_alarms": int((flagged & ~injected).sum()),
+           "precision": precision, "recall": recall, "f1": f1}
+    for kind in KINDS:
+        mask = (kinds == kind).to_numpy()
+        row[f"recall_{kind}"] = float((flagged & mask).sum() / mask.sum())
+    return row
+
+
+def evaluate(scores_train, scores_eval, kinds: pd.Series, rules: pd.DataFrame) -> pd.DataFrame:
+    """Rules alone, the forest alone, and both together, for each contamination."""
+    by_rule = (rules["duplicate"] | rules["spike"]).to_numpy()
+    rows = [{"setting": "rules only", **_scores(by_rule, kinds)}]
     for c in CONTAMINATION_GRID:
-        flagged = scores_eval < np.quantile(scores_train, c)
-        tp = int((flagged & injected).sum())
-        precision = tp / max(int(flagged.sum()), 1)
-        recall = tp / int(injected.sum())
-        f1 = 2 * precision * recall / (precision + recall) if tp else 0.0
-        row = {"contamination": c, "flagged": int(flagged.sum()),
-               "precision": precision, "recall": recall, "f1": f1}
-        for kind in KINDS:
-            mask = (kinds == kind).to_numpy()
-            row[f"recall_{kind}"] = float((flagged & mask).sum() / mask.sum())
-        rows.append(row)
+        forest = scores_eval < np.quantile(scores_train, c)
+        rows.append({"setting": f"forest {c}", "contamination": c, **_scores(forest, kinds)})
+        rows.append({"setting": f"forest {c} + rules", "contamination": c,
+                     **_scores(forest | by_rule, kinds)})
     return pd.DataFrame(rows)
 
 
@@ -88,27 +103,32 @@ def run() -> None:
     X_train = build_anomaly_features(train_df)
     X_eval = build_anomaly_features(eval_df)
     model = IsolationForest(contamination="auto", random_state=seed, **FOREST).fit(X_train)
-    table = evaluate(model.score_samples(X_train), model.score_samples(X_eval), eval_df["kind"])
+    table = evaluate(model.score_samples(X_train), model.score_samples(X_eval),
+                     eval_df["kind"], rule_flags(X_eval))
 
     print("\nDetection of injected anomalies on held-out users:")
-    print(table.round(3).to_string(index=False))
+    print(table[SHOW].round(3).to_string(index=False))
 
-    best = table.loc[table["f1"].idxmax()]
+    combined = table[table["setting"].str.endswith("+ rules")]
+    best = combined.loc[combined["f1"].idxmax()]
     best_c = float(best["contamination"])
-    print(f"\nBest contamination by F1: {best_c}")
+    print(f"\nBest setting by F1: {best['setting']}")
 
     final = IsolationForest(contamination=best_c, random_state=seed, **FOREST)
     final.fit(build_anomaly_features(df))
     out_path = get_project_root() / "models" / "anomaly.joblib"
-    joblib.dump({"model": final, "features": FEATURE_COLUMNS, "contamination": best_c}, out_path)
+    joblib.dump({"model": final, "features": FEATURE_COLUMNS,
+                 "contamination": best_c, "spike_z": SPIKE_Z}, out_path)
     print(f"Saved {out_path}")
 
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("anomaly")
-    with mlflow.start_run(run_name="isolation_forest"):
-        mlflow.log_params({**FOREST, "contamination": best_c, "n_rows": len(df)})
+    with mlflow.start_run(run_name="isolation_forest_plus_rules"):
+        mlflow.log_params({**FOREST, "contamination": best_c, "spike_z": SPIKE_Z,
+                           "n_rows": len(df)})
         mlflow.log_metrics({k: float(best[k]) for k in
-                            ["precision", "recall", "f1"] + [f"recall_{x}" for x in KINDS]})
+                            ["precision", "recall", "f1", "false_alarms"]
+                            + [f"recall_{x}" for x in KINDS]})
 
 
 if __name__ == "__main__":

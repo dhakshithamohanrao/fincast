@@ -57,3 +57,21 @@ def build_anomaly_features(df: pd.DataFrame) -> pd.DataFrame:
     tx = tx.join(ordered[["days_since_merchant", "same_amount_recent"]])
 
     return tx[FEATURE_COLUMNS].astype(float)
+
+SPIKE_Z = 4.0
+
+
+def rule_flags(features: pd.DataFrame, spike_z: float = SPIKE_Z) -> pd.DataFrame:
+    """Simple, explainable rules that run next to the Isolation Forest.
+
+    duplicate: same merchant and amount within 3 days of the previous charge
+    spike:     amount far outside the user's usual range for the category
+    Needs some history per category (about 20 rows); with less, nothing is flagged.
+    """
+    return pd.DataFrame(
+        {
+            "duplicate": features["same_amount_recent"] == 1,
+            "spike": features["amount_z"].abs() > spike_z,
+        },
+        index=features.index,
+    )
