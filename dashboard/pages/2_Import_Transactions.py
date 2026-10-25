@@ -115,7 +115,7 @@ def render_upload() -> None:
         },
         disabled=["date", "description", "amount", "category_source"],
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         key="import_editor",
     )
 

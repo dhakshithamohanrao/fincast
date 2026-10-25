@@ -72,8 +72,8 @@ def render() -> None:
     history = aggregate_monthly(tx)
     history = history[history["month"] < fc.target_month]
     left, right = st.columns([3, 2])
-    left.plotly_chart(forecast_fan_chart(history, fc), use_container_width=True)
-    right.plotly_chart(forecast_donut(fc.table), use_container_width=True)
+    left.plotly_chart(forecast_fan_chart(history, fc), width="stretch")
+    right.plotly_chart(forecast_donut(fc.table), width="stretch")
 
     cat = fc.table[~fc.table["series"].isin(["Income", "Total expenses"])].copy()
     st.subheader("By category")
@@ -83,7 +83,7 @@ def render() -> None:
     )[["series", "forecast", "likely_range", "last_month", "change"]]
     st.dataframe(
         shown.sort_values("forecast", ascending=False),
-        hide_index=True, use_container_width=True,
+        hide_index=True, width="stretch",
         column_config={
             "series": "Category",
             "forecast": st.column_config.NumberColumn("Forecast", format="%.0f"),

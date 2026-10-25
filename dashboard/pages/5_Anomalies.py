@@ -55,7 +55,7 @@ def render() -> None:
     m3.metric("Confirmed problems", int((flags["status"] == "confirmed").sum()))
     m4.metric("Dismissed", int((flags["status"] == "dismissed").sum()))
 
-    st.plotly_chart(anomaly_scatter(tx, flags), use_container_width=True)
+    st.plotly_chart(anomaly_scatter(tx, flags), width="stretch")
 
     show_reviewed = st.checkbox("Also show items I have already reviewed")
     shown = flags if show_reviewed else flags[flags["status"] == "pending"]
@@ -76,10 +76,10 @@ def render() -> None:
                 c2.caption(f"You marked this: {row.status}")
             if row.status != "confirmed":
                 c3.button("Confirm", key=f"confirm_{row.id}", on_click=review,
-                          args=(row.id, "confirmed"), use_container_width=True)
+                          args=(row.id, "confirmed"), width="stretch")
             if row.status != "dismissed":
                 c3.button("Dismiss", key=f"dismiss_{row.id}", on_click=review,
-                          args=(row.id, "dismissed"), use_container_width=True)
+                          args=(row.id, "dismissed"), width="stretch")
 
 
 render()

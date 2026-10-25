@@ -46,3 +46,30 @@ def forecast_donut(table: pd.DataFrame) -> go.Figure:
         annotations=[dict(text=f"{parts['forecast'].sum():,.0f}<br>forecast spend",
                           x=0.5, y=0.5, showarrow=False)])
     return fig
+
+def anomaly_scatter(tx: pd.DataFrame, flags: pd.DataFrame) -> go.Figure:
+    """All transactions as grey dots; flagged ones coloured by review status."""
+    data = tx.copy()
+    data["date"] = pd.to_datetime(data["date"])
+    data["size"] = data["amount"].abs()
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=data["date"], y=data["size"], mode="markers", name="Transactions",
+        marker=dict(color="lightgrey", size=5), hoverinfo="skip"))
+
+    colours = {"pending": "orange", "confirmed": "crimson", "dismissed": "steelblue"}
+    status = flags.set_index("id")["status"]
+    flagged = data[data["id"].isin(status.index)].copy()
+    flagged["status"] = flagged["id"].map(status)
+    for name, colour in colours.items():
+        part = flagged[flagged["status"] == name]
+        if part.empty:
+            continue
+        fig.add_trace(go.Scatter(
+            x=part["date"], y=part["size"], mode="markers", name=name.capitalize(),
+            marker=dict(color=colour, size=10),
+            text=part["description"],
+            hovertemplate="%{text}<br>%{x|%d.%m.%Y}: %{y:,.2f}<extra></extra>"))
+    fig.update_layout(height=350, margin=dict(l=10, r=10, t=10, b=10),
+                      yaxis_title="Amount (absolute)", legend_title_text="")
+    return fig
