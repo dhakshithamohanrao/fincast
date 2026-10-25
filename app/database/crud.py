@@ -142,3 +142,29 @@ def save_forecast(user_id: int, target_month, table: pd.DataFrame, model_version
             added += cur.rowcount
         conn.commit()
     return added
+
+def save_anomaly_review(user_id: int, transaction_id: int, status: str) -> bool:
+    """Mark one of the user's transactions as 'confirmed' (a real problem) or
+    'dismissed' (fine). Returns False if the transaction is not this user's."""
+    if status not in ("confirmed", "dismissed"):
+        raise ValueError("status must be 'confirmed' or 'dismissed'")
+    with closing(get_connection()) as conn:
+        cur = conn.execute(
+            """INSERT INTO anomaly_reviews (user_id, transaction_id, status)
+               SELECT ?, id, ? FROM transactions WHERE id = ? AND user_id = ?
+               ON CONFLICT(user_id, transaction_id)
+               DO UPDATE SET status = excluded.status, reviewed_at = CURRENT_TIMESTAMP""",
+            (user_id, status, int(transaction_id), user_id),
+        )
+        conn.commit()
+        return cur.rowcount > 0
+
+
+def get_anomaly_reviews(user_id: int) -> dict:
+    """{transaction_id: 'confirmed' | 'dismissed'} for one user."""
+    with closing(get_connection()) as conn:
+        rows = conn.execute(
+            "SELECT transaction_id, status FROM anomaly_reviews WHERE user_id = ?",
+            (user_id,),
+        ).fetchall()
+    return {row["transaction_id"]: row["status"] for row in rows}

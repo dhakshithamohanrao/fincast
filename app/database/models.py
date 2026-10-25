@@ -91,6 +91,18 @@ CREATE TABLE IF NOT EXISTS category_corrections (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 """
+CREATE_ANOMALY_REVIEWS = """
+CREATE TABLE IF NOT EXISTS anomaly_reviews (
+    user_id INTEGER NOT NULL,
+    transaction_id INTEGER NOT NULL,
+    status TEXT NOT NULL CHECK (status IN ('confirmed', 'dismissed')),
+    reviewed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, transaction_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (transaction_id) REFERENCES transactions(id) ON DELETE CASCADE
+);
+"""
+
 
 ALL_TABLES = [
     CREATE_USERS,
@@ -100,4 +112,5 @@ ALL_TABLES = [
     CREATE_FORECASTS,
     CREATE_GOALS,
     CREATE_CATEGORY_CORRECTIONS,
+    CREATE_ANOMALY_REVIEWS,
 ]
