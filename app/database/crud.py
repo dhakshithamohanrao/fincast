@@ -198,3 +198,45 @@ def delete_goal(user_id: int, goal_id: int) -> bool:
                            (int(goal_id), user_id))
         conn.commit()
         return cur.rowcount > 0
+
+
+def get_user_by_id(user_id: int) -> Optional[sqlite3.Row]:
+    with closing(get_connection()) as conn:
+        return conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+
+
+def get_profile(user_id: int) -> dict:
+    """Profile settings, with defaults when the user has no profile row yet."""
+    with closing(get_connection()) as conn:
+        row = conn.execute("SELECT income_type, currency FROM profiles WHERE user_id = ?",
+                           (user_id,)).fetchone()
+    if row is None:
+        return {"income_type": "salary", "currency": "EUR"}
+    return {"income_type": row["income_type"], "currency": row["currency"]}
+
+
+def save_profile(user_id: int, income_type: str, currency: str) -> None:
+    with closing(get_connection()) as conn:
+        conn.execute(
+            "INSERT INTO profiles (user_id, income_type, currency) VALUES (?, ?, ?) "
+            "ON CONFLICT(user_id) DO UPDATE SET income_type = excluded.income_type, "
+            "currency = excluded.currency",
+            (user_id, income_type, currency),
+        )
+        conn.commit()
+
+
+def update_password_hash(user_id: int, password_hash: str) -> bool:
+    with closing(get_connection()) as conn:
+        cur = conn.execute("UPDATE users SET password_hash = ? WHERE id = ?",
+                           (password_hash, user_id))
+        conn.commit()
+        return cur.rowcount > 0
+
+
+def delete_user_data(user_id: int) -> bool:
+    """Delete the user and, through ON DELETE CASCADE, all of their data."""
+    with closing(get_connection()) as conn:
+        cur = conn.execute("DELETE FROM users WHERE id = ?", (user_id,))
+        conn.commit()
+        return cur.rowcount > 0

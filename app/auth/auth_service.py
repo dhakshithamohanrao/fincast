@@ -56,3 +56,17 @@ def login(username: str, password: str) -> Optional[sqlite3.Row]:
     if not verify_password(password, user["password_hash"]):
         return None
     return user
+
+def change_password(user_id: int, current: str, new: str) -> Tuple[bool, str]:
+    """Check the current password, then store the new one. Returns (success, message)."""
+    user = crud.get_user_by_id(user_id)
+    if user is None or not verify_password(current, user["password_hash"]):
+        return False, "Your current password is not correct."
+    if len(new) < MIN_PASSWORD_LENGTH:
+        return False, f"Password must be at least {MIN_PASSWORD_LENGTH} characters."
+    if len(new.encode("utf-8")) > MAX_PASSWORD_BYTES:
+        return False, "Password is too long (maximum 72 bytes)."
+    if verify_password(new, user["password_hash"]):
+        return False, "The new password must be different from the current one."
+    crud.update_password_hash(user_id, hash_password(new))
+    return True, "Password changed."
