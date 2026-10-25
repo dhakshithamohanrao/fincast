@@ -168,3 +168,33 @@ def get_anomaly_reviews(user_id: int) -> dict:
             (user_id,),
         ).fetchall()
     return {row["transaction_id"]: row["status"] for row in rows}
+
+def create_goal(user_id: int, name: str, target_amount: float, target_date: str) -> int:
+    with closing(get_connection()) as conn:
+        cur = conn.execute(
+            "INSERT INTO goals (user_id, name, target_amount, target_date) VALUES (?, ?, ?, ?)",
+            (user_id, name.strip(), float(target_amount), str(target_date)[:10]),
+        )
+        conn.commit()
+        return cur.lastrowid
+
+
+def get_goals(user_id: int) -> pd.DataFrame:
+    with closing(get_connection()) as conn:
+        rows = conn.execute(
+            "SELECT id, name, target_amount, target_date FROM goals "
+            "WHERE user_id = ? ORDER BY target_date, id",
+            (user_id,),
+        ).fetchall()
+    df = pd.DataFrame([tuple(r) for r in rows],
+                      columns=["id", "name", "target_amount", "target_date"])
+    df["target_date"] = pd.to_datetime(df["target_date"])
+    return df
+
+
+def delete_goal(user_id: int, goal_id: int) -> bool:
+    with closing(get_connection()) as conn:
+        cur = conn.execute("DELETE FROM goals WHERE id = ? AND user_id = ?",
+                           (int(goal_id), user_id))
+        conn.commit()
+        return cur.rowcount > 0
