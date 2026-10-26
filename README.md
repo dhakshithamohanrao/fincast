@@ -21,11 +21,11 @@ All numbers come from a 12-month rolling backtest on synthetic data (300 users).
 - The 80% forecast range covers the real value about 83% of the time.
 - Rent and subscriptions are copied from last month, because they do not change.
 
-## Run the app
+
 
 Register an account, then upload a bank CSV on the Import page. A sample file is in `data/sample/`.
 
-## Retrain the models
+
 
 Commit the code and the retrained files in `models/` together, so they always agree.
 
