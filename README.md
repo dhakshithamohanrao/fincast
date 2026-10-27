@@ -72,3 +72,18 @@ python -m pytest tests -q
 
 ### Import
 ![Import](docs/screenshots/import.png)
+
+### More screenshots
+
+#### Home
+![Home](docs/screenshots/home.png)
+
+#### Forecast, by category
+![Forecast 2](docs/screenshots/forecast_2.png)
+
+#### Anomalies, before review
+![Anomalies 1](docs/screenshots/anomalies_1.png)
+
+#### Profile
+![Profile 1](docs/screenshots/profile_1.png)
+![Profile 2](docs/screenshots/profile_2.png)
