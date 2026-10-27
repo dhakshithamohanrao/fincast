@@ -102,3 +102,32 @@ python -m pytest tests -q
 #### Profile
 ![Profile](docs/screenshots/profile.png)
 ![Profile account](docs/screenshots/profile_account.png)
+
+## Screenshots
+
+### 1. Home
+![Home](docs/screenshots/01_home.png)
+
+### 2. Overview
+![Overview](docs/screenshots/02_overview.png)
+
+### 3. Import transactions
+![Import](docs/screenshots/03_import.png)
+
+### 4. Forecast
+![Forecast](docs/screenshots/04_forecast.png)
+![Forecast by category](docs/screenshots/04b_forecast_categories.png)
+
+### 5. What if
+![What if](docs/screenshots/05_what_if.png)
+
+### 6. Anomalies
+![Anomalies](docs/screenshots/06_anomalies.png)
+![Anomalies after review](docs/screenshots/06b_anomalies_reviewed.png)
+
+### 7. Savings goals
+![Goals](docs/screenshots/07_goals.png)
+
+### 8. Profile
+![Profile](docs/screenshots/08_profile.png)
+![Profile account](docs/screenshots/08b_profile_account.png)
