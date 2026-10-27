@@ -55,56 +55,6 @@ python -m pytest tests -q
 
 ## Screenshots
 
-### Overview
-![Overview](docs/screenshots/overview.png)
-
-### Forecast
-![Forecast](docs/screenshots/forecast.png)
-
-### What If
-![What If](docs/screenshots/what_if.png)
-
-### Anomalies
-![Anomalies](docs/screenshots/anomalies.png)
-
-### Goals
-![Goals](docs/screenshots/goals.png)
-
-### Import
-![Import](docs/screenshots/import.png)
-
-### More screenshots
-
-#### Home
-![Home](docs/screenshots/home.png)
-
-#### Forecast, by category
-![Forecast 2](docs/screenshots/forecast_2.png)
-
-#### Anomalies, before review
-![Anomalies 1](docs/screenshots/anomalies_1.png)
-
-#### Profile
-![Profile 1](docs/screenshots/profile_1.png)
-![Profile 2](docs/screenshots/profile_2.png)
-
-### More screenshots
-
-#### Home
-![Home](docs/screenshots/home.png)
-
-#### Forecast, by category
-![Forecast 2](docs/screenshots/forecast_2.png)
-
-#### Anomalies, before review
-![Anomalies 1](docs/screenshots/anomalies_1.png)
-
-#### Profile
-![Profile](docs/screenshots/profile.png)
-![Profile account](docs/screenshots/profile_account.png)
-
-## Screenshots
-
 ### 1. Home
 ![Home](docs/screenshots/01_home.png)
 
