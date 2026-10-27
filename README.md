@@ -52,3 +52,23 @@ Retrain the models and run the tests:
 python -m src.training.train_forecaster
 python -m pytest tests -q
 ```
+
+## Screenshots
+
+### Overview
+![Overview](docs/screenshots/overview.png)
+
+### Forecast
+![Forecast](docs/screenshots/forecast.png)
+
+### What If
+![What If](docs/screenshots/what_if.png)
+
+### Anomalies
+![Anomalies](docs/screenshots/anomalies.png)
+
+### Goals
+![Goals](docs/screenshots/goals.png)
+
+### Import
+![Import](docs/screenshots/import.png)
